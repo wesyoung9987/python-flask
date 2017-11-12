@@ -18,7 +18,7 @@ class UserModel(db.Model):
         db.session.commit()
 
     def set_password(self, password):
-        self.pw_hash = generate_password_hash(password, 12)
+        self.pw_hash = generate_password_hash(password, 12).decode('utf-8')
 
     @classmethod
     def find_by_username(cls, username):
