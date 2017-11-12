@@ -3,7 +3,8 @@ from models.user import UserModel
 
 def authenticate(username, password):
     user = UserModel.find_by_username(username)
-    if user and check_password_hash(user['pw_hash'], password):
+    print(user.pw_hash)
+    if user and check_password_hash(user.pw_hash, password):
         return user
 
 def identity(payload):
